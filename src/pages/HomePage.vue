@@ -337,7 +337,6 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   letter-spacing: -0.06em;
   max-width: 620px;
   margin-bottom: 1.2rem;
-  animation: handwritten-title 6s both ease-out;
 }
 
 .hero-copy h1 em {
@@ -350,7 +349,6 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   margin-bottom: 1.8rem;
   color: rgba(255, 255, 255, 0.86);
   font-size: 1.1rem;
-  animation: handwritten-subtitle 4.5s 1.4s both ease-out;
 }
 
 .hero-eyebrow {
@@ -470,7 +468,6 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
 .hero-panel h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  animation: handwritten-subtitle 4.5s 1.8s both ease-out;
 }
 
 .hero-panel p,
