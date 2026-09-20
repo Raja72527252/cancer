@@ -47,7 +47,7 @@ const props = defineProps({
 
 .resource-type {
   display: inline-block;
-  color: var(--color-primary);
+  color: #000000;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -56,7 +56,7 @@ const props = defineProps({
 
 .resource-body h3 {
   margin: 0.5rem 0 0.6rem;
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: 1.2rem;
   font-weight: 800;
 }
@@ -67,7 +67,20 @@ const props = defineProps({
 }
 
 .download-link {
-  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-white);
   font-weight: 700;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.download-link:hover {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
 }
 </style>

@@ -62,7 +62,7 @@ const item = computed(() => blogCards.find(entry => entry.slug === route.params.
 .article-breadcrumb .breadcrumb-item a,
 .article-breadcrumb .breadcrumb-item.active,
 .article-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-  color: var(--color-primary);
+  color: #000000;
 }
 
 .article-cover {
@@ -90,7 +90,7 @@ const item = computed(() => blogCards.find(entry => entry.slug === route.params.
 .article-content h1 {
   max-width: 780px;
   margin: 0.25rem 0 1rem;
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.08;
   letter-spacing: -0.045em;

@@ -126,7 +126,7 @@ const programLinks = [
   padding: 0.65rem 0.9rem;
   border: 1px solid rgba(87, 174, 79, 0.35);
   border-radius: 999px;
-  color: #2f6f2a !important;
+  color: #000000 !important;
   font-size: 0.82rem !important;
   font-weight: 800;
 }
@@ -154,7 +154,7 @@ const programLinks = [
 }
 
 .site-footer a:hover {
-  color: #2f6f2a;
+  color: #000000;
 }
 
 .footer-bottom {

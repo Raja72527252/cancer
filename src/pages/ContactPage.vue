@@ -99,7 +99,7 @@ const contactInfo = [
 .contact-item strong {
   display: block;
   margin-bottom: 0.2rem;
-  color: var(--color-primary-dark);
+  color: #000000;
 }
 
 .contact-item p {
@@ -110,7 +110,7 @@ const contactInfo = [
 .contact-form label {
   display: block;
   margin-bottom: 0.45rem;
-  color: var(--color-primary-dark);
+  color: #000000;
   font-weight: 700;
 }
 

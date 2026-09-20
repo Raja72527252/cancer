@@ -24,8 +24,8 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
               </p>
               <div class="hero-actions d-flex flex-wrap gap-3">
                 <router-link class="site-btn" to="/donate">Donate</router-link>
-                <router-link class="btn btn-outline-light" to="/programs">Our Programs</router-link>
-                <router-link class="btn btn-outline-light" to="/get-involved">Get Involved</router-link>
+                <router-link class="site-btn" to="/programs">Our Programs</router-link>
+                <router-link class="site-btn" to="/get-involved">Get Involved</router-link>
               </div>
             </div>
           </div>
@@ -47,7 +47,9 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
         <div class="row g-4">
           <div v-for="item in homeServices" :key="item.title" class="col-md-6 col-xl-4">
             <div class="impact-card service-highlight surface-card h-100">
-              <div class="impact-icon"><i :class="item.icon"></i></div>
+              <div class="impact-icon impact-image-icon">
+                <img :src="item.image" :alt="`${item.title} icon`" />
+              </div>
               <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
             </div>
@@ -99,7 +101,9 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
         <div class="row g-4">
           <div v-for="item in whatWeDoCards" :key="item.title" class="col-md-6 col-xl-3">
             <div class="service-card surface-card h-100">
-              <div class="service-icon"><i :class="item.icon"></i></div>
+              <div class="service-icon service-image-icon">
+                <img :src="item.image" :alt="`${item.title} icon`" />
+              </div>
               <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
               <router-link class="service-link" :to="`/what-we-do/${item.title.toLowerCase().replaceAll(' ', '-')}`">
@@ -166,7 +170,7 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
         <div class="row g-4">
           <div class="col-md-6 col-xl-3">
             <div class="support-card surface-card h-100">
-              <div class="service-icon"><i class="bi bi-broadcast"></i></div>
+              <div class="service-icon"><i class="bi bi-megaphone"></i></div>
               <h3>Awareness</h3>
               <p>Encouraging informed choices and community understanding of cancer prevention.</p>
             </div>
@@ -203,7 +207,7 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
             <span class="section-kicker">News & Updates</span>
             <h2 class="section-title mb-0">Recent community stories</h2>
           </div>
-          <router-link class="btn btn-outline-primary" to="/news">View All News</router-link>
+          <router-link class="site-btn" to="/news">View All News</router-link>
         </div>
 
         <div class="row g-4">
@@ -236,7 +240,7 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
             <span class="section-kicker">Resources</span>
             <h2 class="section-title mb-0">Awareness and educational materials</h2>
           </div>
-          <router-link class="btn btn-outline-primary" to="/resources">View All Resources</router-link>
+          <router-link class="site-btn" to="/resources">View All Resources</router-link>
         </div>
 
         <div class="row g-4">
@@ -423,7 +427,7 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.94);
-  color: var(--color-primary);
+  color: #000000;
   box-shadow: 0 16px 35px rgba(13, 5, 10, 0.2);
   font-size: 0.72rem;
   line-height: 1.2;
@@ -459,7 +463,7 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   padding: 2rem;
   background: rgba(255, 255, 255, 0.94);
   border-color: rgba(255, 255, 255, 0.7);
-  color: var(--color-primary-dark);
+  color: #000000;
   position: relative;
   z-index: 2;
   animation: hero-enter 0.8s 0.3s both ease-out;
@@ -519,7 +523,20 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
 .service-highlight .impact-icon {
   margin: 0 0 1.1rem;
   background: rgba(87, 174, 79, 0.14);
-  color: var(--color-primary);
+  color: #000000;
+}
+
+.impact-image-icon {
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  background: transparent !important;
+}
+
+.impact-image-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .service-highlight h3 {
@@ -533,16 +550,35 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   margin: 0 auto 1rem;
   border-radius: 16px;
   background: rgba(87, 174, 79, 0.12);
-  color: var(--color-primary);
+  color: #000000;
   display: grid;
   place-items: center;
   font-size: 1.6rem;
 }
 
+.service-image-icon {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  background: transparent;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.service-image-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.support-card .service-icon {
+  color: var(--color-primary);
+}
+
 .impact-card h3,
 .service-card h3,
 .support-card h3 {
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: 1.25rem;
   font-weight: 800;
   margin-bottom: 0.8rem;
@@ -560,9 +596,23 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   align-items: center;
   gap: 0.35rem;
   margin-top: 1rem;
-  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-white);
   font-size: 0.82rem;
   font-weight: 800;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.service-link:hover {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
 }
 
 .soft-bg {
@@ -591,7 +641,7 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
 
 .about-points strong {
   display: block;
-  color: var(--color-primary-dark);
+  color: #000000;
   margin-bottom: 0.35rem;
 }
 
@@ -612,7 +662,7 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
 }
 
 .service-card a {
-  color: var(--color-primary);
+  color: #000000;
   font-weight: 700;
   margin-top: 1rem;
   display: inline-block;
@@ -637,7 +687,7 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
 }
 
 .featured-copy h2 {
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.05em;
@@ -707,12 +757,12 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   align-items: center;
   gap: 0.5rem;
   background: var(--color-white);
-  color: var(--color-primary);
+  color: #000000;
   box-shadow: 0 14px 28px rgba(30, 8, 16, 0.28);
 }
 
 .donation-btn:hover {
-  color: var(--color-primary-dark);
+  color: #000000;
   background: #fff8f7;
 }
 

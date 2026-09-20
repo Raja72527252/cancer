@@ -48,7 +48,7 @@ import NewsCard from '../components/NewsCard.vue'
 .page-hero-label {
   display: inline-block;
   margin-bottom: 0.8rem;
-  color: var(--color-primary);
+  color: #000000;
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.14em;

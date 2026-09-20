@@ -484,7 +484,7 @@ const page = computed(() => {
 .gallery-card-body h3,
 .video-card-body h3 {
   margin: 0 0 0.75rem;
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: 1rem;
   font-weight: 800;
 }
@@ -493,7 +493,7 @@ const page = computed(() => {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: var(--color-primary);
+  color: #000000;
   font-size: 0.8rem;
   font-weight: 800;
 }
@@ -545,7 +545,7 @@ const page = computed(() => {
 .page-hero-label {
   display: inline-block;
   margin-bottom: 0.8rem;
-  color: var(--color-primary);
+  color: #000000;
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -581,7 +581,7 @@ const page = computed(() => {
   padding: 0.7rem 0.95rem;
   border-radius: 999px;
   background: var(--color-white);
-  color: var(--color-primary);
+  color: #000000;
   box-shadow: var(--shadow-card);
   font-size: 0.78rem;
   font-weight: 800;
@@ -605,7 +605,7 @@ const page = computed(() => {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  color: var(--color-primary-dark);
+  color: #000000;
 }
 
 .subpage-point span {
@@ -615,7 +615,7 @@ const page = computed(() => {
   height: 2rem;
   border-radius: 50%;
   background: rgba(87, 174, 79, 0.12);
-  color: var(--color-primary);
+  color: #000000;
   font-size: 0.7rem;
   font-weight: 800;
 }

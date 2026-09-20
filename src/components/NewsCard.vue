@@ -60,7 +60,7 @@ defineProps({
 .news-tag {
   display: inline-block;
   background: rgba(87, 174, 79, 0.12);
-  color: var(--color-primary);
+  color: #000000;
   padding: 0.38rem 0.7rem;
   border-radius: 999px;
   font-size: 0.72rem;
@@ -70,7 +70,7 @@ defineProps({
 }
 
 .news-body h3 {
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -87,7 +87,7 @@ defineProps({
 }
 
 .news-meta i {
-  color: var(--color-primary);
+  color: #000000;
   margin-right: 0.2rem;
 }
 
@@ -96,7 +96,20 @@ defineProps({
 }
 
 .news-body a {
-  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-white);
   font-weight: 700;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.news-body a:hover {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
 }
 </style>

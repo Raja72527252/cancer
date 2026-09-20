@@ -62,7 +62,7 @@
   height: 54px;
   border-radius: 16px;
   background: rgba(87, 174, 79, 0.12);
-  color: var(--color-primary);
+  color: #000000;
   display: grid;
   place-items: center;
   font-size: 1.5rem;
@@ -70,7 +70,7 @@
 }
 
 .service-card h3 {
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: 1.3rem;
   margin-bottom: 0.7rem;
   font-weight: 800;

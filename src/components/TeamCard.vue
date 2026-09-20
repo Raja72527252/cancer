@@ -51,7 +51,7 @@ const avatarImage = computed(() => {
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, #f1d8d3, #e8efe8);
-  color: var(--color-primary);
+  color: #000000;
   font-weight: 800;
   font-size: 1.05rem;
   margin: 0 auto 1rem;
@@ -71,7 +71,7 @@ const avatarImage = computed(() => {
 }
 
 .team-card h3 {
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: 1.08rem;
   font-weight: 800;
   margin-bottom: 0.35rem;

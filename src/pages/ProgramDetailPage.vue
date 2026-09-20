@@ -78,7 +78,7 @@ const program = computed(() => programCards.find(item => item.id === route.param
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--color-primary);
+  color: #000000;
   font-size: 1.3rem;
   line-height: 1;
 }

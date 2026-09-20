@@ -120,12 +120,12 @@ export const impactCards = [
 ]
 
 export const homeServices = [
-  { title: 'Cervical Cancer Screening', description: 'Promoting early screening, awareness and referral support for women.', icon: 'bi-gender-female' },
-  { title: 'Breast Cancer Screening', description: 'Helping women access timely information, screening and compassionate guidance.', icon: 'bi-heart-pulse' },
-  { title: 'Prostate Cancer Screening', description: 'Encouraging men and families to understand risk, symptoms and timely care.', icon: 'bi-person-check' },
-  { title: 'Tobacco Control', description: 'Building healthier communities through tobacco prevention and public education.', icon: 'bi-slash-circle' },
-  { title: 'Patient Advocacy', description: 'Supporting patients and families with clear guidance and respectful care.', icon: 'bi-people' },
-  { title: 'Research', description: 'Using evidence and learning to strengthen cancer prevention and support programs.', icon: 'bi-graph-up-arrow' }
+  { title: 'Cervical Cancer Screening', description: 'Promoting early screening, awareness and referral support for women.', image: '/images/home-services/cervical-screening.png' },
+  { title: 'Breast Cancer Screening', description: 'Helping women access timely information, screening and compassionate guidance.', image: '/images/home-services/breast-screening.png' },
+  { title: 'Prostate Cancer Screening', description: 'Encouraging men and families to understand risk, symptoms and timely care.', image: '/images/home-services/prostate-screening.png' },
+  { title: 'Tobacco Control', description: 'Building healthier communities through tobacco prevention and public education.', image: '/images/home-services/tobacco-control.png' },
+  { title: 'Patient Advocacy', description: 'Supporting patients and families with clear guidance and respectful care.', image: '/images/home-services/patient-advocacy.png' },
+  { title: 'Research', description: 'Using evidence and learning to strengthen cancer prevention and support programs.', image: '/images/home-services/research.png' }
 ]
 
 export const programCards = [
@@ -159,42 +159,42 @@ export const whatWeDoCards = [
   {
     title: 'Cancer Prevention',
     description: 'Education and community input that reduces risk and supports healthier decisions.',
-    icon: 'bi-shield-check'
+    image: '/images/what-we-do/cancer-prevention.png'
   },
   {
     title: 'Early Detection',
     description: 'Proactive screening and referral support to promote timely diagnosis and care.',
-    icon: 'bi-search-heart'
+    image: '/images/what-we-do/early-detection.png'
   },
   {
     title: 'Cancer Awareness',
     description: 'Community outreach and campaigns that address stigma, misinformation and service gaps.',
-    icon: 'bi-megaphone'
+    image: '/images/what-we-do/cancer-awareness.png'
   },
   {
     title: 'Treatment Support',
     description: 'Practical help for patients and families navigating diagnosis and treatment pathways.',
-    icon: 'bi-heart-pulse'
+    image: '/images/what-we-do/treatment-support.png'
   },
   {
     title: 'Screening',
     description: 'Clinical and community-based screening initiatives designed for underserved groups.',
-    icon: 'bi-clipboard2-pulse'
+    image: '/images/what-we-do/screening.png'
   },
   {
     title: 'Tobacco Control',
     description: 'Public health action focused on reducing exposure and encouraging healthier communities.',
-    icon: 'bi-slash-circle'
+    image: '/images/what-we-do/tobacco-control.png'
   },
   {
     title: 'Community Outreach',
     description: 'Direct engagement with local communities, health workers and families.',
-    icon: 'bi-people'
+    image: '/images/what-we-do/community-outreach.png'
   },
   {
     title: 'Research',
     description: 'Evidence-informed programming and learning that strengthens the foundation’s mission.',
-    icon: 'bi-graph-up-arrow'
+    image: '/images/what-we-do/research.png'
   }
 ]
 

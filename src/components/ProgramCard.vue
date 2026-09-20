@@ -50,7 +50,7 @@ const props = defineProps({
 }
 
 .program-body h3 {
-  color: var(--color-primary-dark);
+  color: #000000;
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.04em;

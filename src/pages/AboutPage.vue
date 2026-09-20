@@ -93,7 +93,7 @@ const overview = [
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--color-primary);
+  color: #000000;
   font-size: 1.4rem;
   line-height: 1;
 }

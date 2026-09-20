@@ -103,7 +103,7 @@ const closeMenu = () => {
 .topbar {
   background: #f4ecea;
   padding: 0.42rem 0;
-  color: var(--color-primary);
+  color: #000000;
   font-size: 0.76rem;
   letter-spacing: 0.02em;
 }
@@ -225,7 +225,7 @@ const closeMenu = () => {
 
 .btn-donate:hover {
   background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  border-color: #000000;
   color: var(--color-white);
   transform: translateY(-2px);
 }
