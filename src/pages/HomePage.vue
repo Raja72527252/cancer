@@ -234,12 +234,16 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
         <div class="text-center mb-5">
           <span class="section-kicker">Our team</span>
           <h2 class="section-title">People behind the mission</h2>
+          <p class="lead team-section-intro">Meet the committed people helping communities find trusted cancer information, screening and support.</p>
         </div>
 
         <div class="row g-4">
           <div v-for="member in teamPreview" :key="member.name" class="col-sm-6 col-lg-4">
             <TeamCard :member="member" />
           </div>
+        </div>
+        <div class="text-center mt-5">
+          <router-link class="site-btn" to="/our-team">Meet Our Team</router-link>
         </div>
       </div>
     </section>
@@ -600,6 +604,11 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
 .support-card p {
   color: var(--color-muted);
   margin-bottom: 0;
+}
+
+.team-section-intro {
+  max-width: 42rem;
+  margin: 0 auto;
 }
 
 .service-link {

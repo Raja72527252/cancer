@@ -45,7 +45,10 @@ const handleNavClick = (link, event) => {
 <template>
   <header :class="['site-header', { scrolled: isScrolled }]">
     <div class="topbar">
-      <div class="container d-flex justify-content-center align-items-center">
+      <div class="container d-flex justify-content-between align-items-center gap-3 flex-wrap">
+        <a href="mailto:info@tumamcarefoundation.org.np">
+          <i class="bi bi-envelope me-2"></i>info@tumamcarefoundation.org.np
+        </a>
         <span lang="ne"><i class="bi bi-calendar3 me-2"></i>२०८३ असोज ५</span>
       </div>
     </div>
@@ -125,6 +128,11 @@ const handleNavClick = (link, event) => {
   letter-spacing: 0.02em;
 }
 
+.topbar a,
+.topbar span {
+  color: #000000;
+}
+
 .navbar {
   min-height: 76px;
   padding: 0.45rem 0;
@@ -167,7 +175,7 @@ const handleNavClick = (link, event) => {
 
 .dropdown-menu {
   min-width: 14rem;
-  margin-top: 0.25rem;
+  margin-top: 0;
   padding: 0.45rem;
   border: 1px solid rgba(87, 174, 79, 0.14);
   border-radius: 12px;
@@ -208,6 +216,10 @@ const handleNavClick = (link, event) => {
 
   .nav-item.dropdown:hover > .dropdown-menu {
     display: block;
+  }
+
+  .nav-item.dropdown > .dropdown-menu {
+    top: calc(100% - 1px);
   }
 }
 
@@ -311,7 +323,6 @@ const handleNavClick = (link, event) => {
 @media (max-width: 575px) {
   .topbar {
     font-size: 0.7rem;
-    text-align: center;
     padding: 0.35rem 0;
   }
 
