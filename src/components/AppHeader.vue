@@ -3,6 +3,7 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { navLinks } from '../data/siteData'
 
 const isMenuOpen = ref(false)
+const openDropdown = ref(null)
 const isScrolled = ref(false)
 
 const menuClasses = computed(() => ({
@@ -25,15 +26,27 @@ onBeforeUnmount(() => {
 
 const closeMenu = () => {
   isMenuOpen.value = false
+  openDropdown.value = null
+}
+
+const handleNavClick = (link, event) => {
+  if (!link.children) {
+    closeMenu()
+    return
+  }
+
+  if (window.innerWidth < 992) {
+    event.preventDefault()
+    openDropdown.value = openDropdown.value === link.label ? null : link.label
+  }
 }
 </script>
 
 <template>
   <header :class="['site-header', { scrolled: isScrolled }]">
     <div class="topbar">
-      <div class="container d-flex justify-content-between align-items-center gap-3 flex-wrap">
-        <span><i class="bi bi-envelope me-2"></i>info@tumamcarefoundation.org.np</span>
-        <span><i class="bi bi-geo-alt me-2"></i>Tokha Mun-03, Kathmandu, Bagmati Province, Nepal</span>
+      <div class="container d-flex justify-content-center align-items-center">
+        <span lang="ne"><i class="bi bi-calendar3 me-2"></i>२०८३ असोज ५</span>
       </div>
     </div>
 
@@ -57,13 +70,13 @@ const closeMenu = () => {
             <li
               v-for="link in navLinks"
               :key="link.label"
-              :class="['nav-item', { dropdown: link.children }]"
+              :class="['nav-item', { dropdown: link.children, 'dropdown-open': openDropdown === link.label }]"
             >
               <router-link
                 class="nav-link"
                 :to="link.to"
                 :aria-expanded="link.children ? 'false' : undefined"
-                @click="closeMenu"
+                @click="handleNavClick(link, $event)"
               >
                 {{ link.label }}<i v-if="link.children" class="bi bi-chevron-down ms-1"></i>
               </router-link>
@@ -98,6 +111,10 @@ const closeMenu = () => {
 .site-header.scrolled {
   box-shadow: 0 10px 25px rgba(17, 14, 14, 0.06);
   border-bottom-color: rgba(87, 174, 79, 0.12);
+}
+
+.site-header.scrolled .topbar {
+  display: none;
 }
 
 .topbar {
@@ -231,8 +248,15 @@ const closeMenu = () => {
 }
 
 @media (max-width: 991px) {
+  .navbar > .container {
+    flex-wrap: wrap;
+  }
+
   .navbar-collapse {
     display: none;
+    width: 100%;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
     padding-top: 1rem;
   }
 
@@ -244,20 +268,38 @@ const closeMenu = () => {
     flex-direction: column;
     align-items: start !important;
     margin: 0 0 1rem;
+    gap: 0.2rem;
+    width: 100%;
+  }
+
+  .nav-item,
+  .nav-link {
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: 0.72rem 0.8rem !important;
   }
 
   .dropdown-menu {
     position: static;
-    display: block;
+    display: none;
+    width: 100%;
     border: 0;
     box-shadow: none;
     padding: 0 0 0.35rem 0.75rem;
+    background: rgba(87, 174, 79, 0.04);
+  }
+
+  .nav-item.dropdown.dropdown-open > .dropdown-menu {
+    display: block;
   }
 
   .nav-actions {
     margin-left: 0;
     justify-content: flex-start;
     flex-wrap: wrap;
+    padding-bottom: 0.5rem;
   }
 
   .brand-logo {
@@ -270,6 +312,7 @@ const closeMenu = () => {
   .topbar {
     font-size: 0.7rem;
     text-align: center;
+    padding: 0.35rem 0;
   }
 
   .brand-logo {

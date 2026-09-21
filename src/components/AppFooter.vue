@@ -181,4 +181,35 @@ const programLinks = [
   background: rgba(87, 174, 79, 0.14);
 }
 
+@media (max-width: 767px) {
+  .site-footer {
+    margin-top: 2.5rem;
+  }
+
+  .site-footer .container {
+    width: min(100% - 2rem, var(--container));
+  }
+
+  .footer-brand {
+    margin-bottom: 1rem;
+  }
+
+  .brand-mark {
+    width: min(190px, 100%);
+  }
+
+  .footer-intro {
+    max-width: none;
+  }
+
+  .footer-bottom .container {
+    align-items: flex-start !important;
+  }
+
+  .footer-links {
+    width: 100%;
+    gap: 0.75rem !important;
+  }
+}
+
 </style>

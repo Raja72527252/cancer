@@ -88,6 +88,10 @@ export const galleryPhotos = [
       {
         title: 'Interaction Program on Tobacco Control',
         source: 'https://tumamcarefoundation.org.np/wp-content/uploads/2023/09/Interaction-on-Tobacco-Control.mp4'
+      },
+      {
+        title: 'Community Conversation on Tobacco Control',
+        source: 'https://tumamcarefoundation.org.np/wp-content/uploads/2023/09/Interaction-on-Tobacco-Control.mp4'
       }
     ]
 
@@ -309,7 +313,7 @@ export const newsCards = [
     category: 'Volunteer Stories',
     title: 'Volunteers extend the circle of care in every community',
     excerpt: 'Dedicated volunteers help turn cancer awareness into trusted conversations, practical guidance and compassionate action.',
-    image: '/images/DSC_5686-1-scaled.jpg',
+    image: '/images/gallery/DSC_5686-1-scaled.jpg',
     date: '01 August 2026',
     readTime: '4 min read',
     body: 'Volunteers are an important bridge between the foundation and the communities it serves. Their time, empathy and local knowledge help more people access reliable information, screening guidance and support.'

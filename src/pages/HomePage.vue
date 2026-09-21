@@ -1,7 +1,6 @@
 <script setup>
-import { homeServices, programCards, whatWeDoCards, resourceCards, newsCards, teamGroups } from '../data/siteData'
+import { homeServices, programCards, whatWeDoCards, resourceCards, galleryVideos, teamGroups } from '../data/siteData'
 import ProgramCard from '../components/ProgramCard.vue'
-import NewsCard from '../components/NewsCard.vue'
 import ResourceCard from '../components/ResourceCard.vue'
 import TeamCard from '../components/TeamCard.vue'
 
@@ -204,15 +203,27 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
       <div class="container">
         <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
           <div>
-            <span class="section-kicker">News & Updates</span>
-            <h2 class="section-title mb-0">Recent community stories</h2>
+            <span class="section-kicker">Videos</span>
+            <h2 class="section-title mb-0">Foundation video stories</h2>
           </div>
-          <router-link class="site-btn" to="/news">View All News</router-link>
+          <router-link class="site-btn" to="/gallery/videos">View All Videos</router-link>
         </div>
 
-        <div class="row g-4">
-          <div v-for="item in newsCards" :key="item.slug" class="col-lg-4">
-            <NewsCard :item="item" />
+        <div class="row g-4 home-video-grid">
+          <div v-for="video in galleryVideos.slice(0, 3)" :key="video.title" class="col-lg-4">
+            <article class="video-card surface-card h-100">
+              <video controls preload="metadata" poster="/images/cancer-education-program.jpg">
+                <source :src="video.source" type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+              <div class="video-card-body">
+                <span class="section-kicker">Foundation video</span>
+                <h3>{{ video.title }}</h3>
+                <a class="gallery-download" :href="video.source" target="_blank" rel="noreferrer">
+                  <i class="bi bi-play-circle"></i> Open video
+                </a>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -659,6 +670,37 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
 .service-card:hover,
 .support-card:hover {
   transform: translateY(-4px);
+}
+
+.home-video-grid .video-card {
+  overflow: hidden;
+}
+
+.home-video-grid video {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #142515;
+}
+
+.home-video-grid .video-card-body {
+  padding: 1.25rem;
+}
+
+.home-video-grid .video-card-body h3 {
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0.7rem 0 1rem;
+}
+
+.home-video-grid .gallery-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #000000;
+  font-weight: 700;
 }
 
 .service-card a {
