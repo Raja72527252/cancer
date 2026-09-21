@@ -58,6 +58,12 @@ const programLinks = [
         <div class="footer-links d-flex align-items-center gap-3 flex-wrap">
           <router-link to="/contact">Contact Foundation</router-link>
           <a href="https://www.tumamcarefoundation.org.np/" target="_blank" rel="noopener">Official Website</a>
+          <span class="digital-partner">
+            Digital Partner -
+            <a href="https://infiniteitsolutionsnepal.com/" target="_blank" rel="noopener">
+              Infinite IT Solution Nepal
+            </a>
+          </span>
           <div class="socials">
             <a href="https://www.tumamcarefoundation.org.np/" target="_blank" rel="noopener" aria-label="Foundation website">
               <i class="bi bi-globe2"></i>
