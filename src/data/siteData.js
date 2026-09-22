@@ -8,7 +8,7 @@ export const navLinks = [
       { label: 'Vision, Mission & Objectives', to: '/about/vision-mission-objectives' },
       { label: 'Organizational Structure', to: '/about/organizational-structure' },
       { label: 'Our Teams', to: '/about/our-team' },
-      { label: 'What We Do?', to: '/what-we-do' }
+      { label: 'What We Do?', to: '/about/what-we-do' }
     ]
 
   },

@@ -66,7 +66,7 @@ const overview = [
               </div>
               <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
-              <router-link class="about-focus-link" :to="`/what-we-do/${item.title.toLowerCase().replaceAll(' ', '-')}`">
+              <router-link class="about-focus-link" :to="`/about/what-we-do/${item.title.toLowerCase().replaceAll(' ', '-')}`">
                 Explore focus <i class="bi bi-arrow-up-right"></i>
               </router-link>
             </article>

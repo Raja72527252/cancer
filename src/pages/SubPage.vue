@@ -88,49 +88,49 @@ const content = {
     body: 'Our events create space for education, screening, dialogue and solidarity. Follow foundation updates or contact us to participate in an upcoming activity.',
     image: '/images/banner-via-myagde3-1-scaled.jpg'
   },
-  '/what-we-do/cancer-prevention': {
+  '/about/what-we-do/cancer-prevention': {
     kicker: 'What we do',
     title: 'Cancer Prevention',
     intro: 'Helping communities understand risk factors and make healthier choices.',
     heading: 'Prevention starts with awareness',
     body: 'Our prevention work shares practical health information, promotes healthy choices and connects communities with trusted public-health resources.'
   },
-  '/what-we-do/early-detection': {
+  '/about/what-we-do/early-detection': {
     kicker: 'What we do',
     title: 'Early Detection',
     intro: 'Promoting timely screening, referral and access to reliable information.',
     heading: 'Earlier action can save lives',
     body: 'We help people recognize warning signs, access screening opportunities and understand the next steps after a referral.'
   },
-  '/what-we-do/cancer-awareness': {
+  '/about/what-we-do/cancer-awareness': {
     kicker: 'What we do',
     title: 'Cancer Awareness',
     intro: 'Building knowledge and reducing stigma through community education.',
     heading: 'Clear information creates confidence',
     body: 'Our awareness activities address misinformation and make cancer prevention, symptoms, screening and support easier to understand.'
   },
-  '/what-we-do/treatment-support': {
+  '/about/what-we-do/treatment-support': {
     kicker: 'What we do',
     title: 'Treatment Support',
     intro: 'Standing with patients and families as they navigate cancer care.',
     heading: 'Compassion beyond diagnosis',
     body: 'We provide guidance, practical support and referral connections to help patients and families move through treatment with dignity.'
   },
-  '/what-we-do/screening': {
+  '/about/what-we-do/screening': {
     kicker: 'What we do',
     title: 'Screening',
     intro: 'Supporting community-based screening and referral initiatives.',
     heading: 'Making screening more accessible',
     body: 'Our screening activities focus on underserved communities, especially women who face barriers to timely preventive care.'
   },
-  '/what-we-do/tobacco-control': {
+  '/about/what-we-do/tobacco-control': {
     kicker: 'What we do',
     title: 'Tobacco Control',
     intro: 'Reducing tobacco-related harm through education and public-health action.',
     heading: 'Healthier communities start with prevention',
     body: 'We work with communities and public institutions to increase understanding of tobacco harms and encourage prevention.'
   },
-  '/what-we-do/community-outreach': {
+  '/about/what-we-do/community-outreach': {
     kicker: 'What we do',
     title: 'Community Outreach',
     intro: 'Taking cancer education and support closer to the people who need it.',
@@ -298,12 +298,12 @@ const page = computed(() => {
   }
 
   const imageByPath = {
-    '/what-we-do/cancer-prevention': '/images/cancer-education-program.jpg',
-    '/what-we-do/early-detection': '/images/e60c507e-bdeb-40ad-974f-d14e6561fb9f-e1687192809668-768x436.jpg',
-    '/what-we-do/cancer-awareness': '/images/cancer-education-program.jpg',
-    '/what-we-do/treatment-support': '/images/IMG_2577.jpg',
-    '/what-we-do/screening': '/images/e5c076d3-e365-47b7-9ba3-40dc84974de0-e1687192940907-768x436.jpg',
-    '/what-we-do/tobacco-control': '/images/IMG_2482-scaled.jpg',
+    '/about/what-we-do/cancer-prevention': '/images/cancer-education-program.jpg',
+    '/about/what-we-do/early-detection': '/images/e60c507e-bdeb-40ad-974f-d14e6561fb9f-e1687192809668-768x436.jpg',
+    '/about/what-we-do/cancer-awareness': '/images/cancer-education-program.jpg',
+    '/about/what-we-do/treatment-support': '/images/IMG_2577.jpg',
+    '/about/what-we-do/screening': '/images/e5c076d3-e365-47b7-9ba3-40dc84974de0-e1687192940907-768x436.jpg',
+    '/about/what-we-do/tobacco-control': '/images/IMG_2482-scaled.jpg',
     '/resources/breast-cancer': '/images/IMG_2577.jpg',
     '/resources/cervical-cancer': '/images/e60c507e-bdeb-40ad-974f-d14e6561fb9f-e1687192809668-768x436.jpg',
     '/resources/cancer-nutrition': '/images/INTRODUCTION-IMAGE-768x469.jpg',
