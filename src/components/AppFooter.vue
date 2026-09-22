@@ -72,11 +72,6 @@ const programLinks = [
               <i class="bi bi-globe2"></i>
             </a>
           </span>
-          <div class="socials">
-            <a href="https://www.tumamcarefoundation.org.np/" target="_blank" rel="noopener" aria-label="Foundation website">
-              <i class="bi bi-globe2"></i>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -204,20 +199,6 @@ const programLinks = [
   transform: translateY(-2px);
 }
 
-.socials {
-  display: inline-flex;
-  gap: 0.6rem;
-}
-
-.socials a {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(87, 174, 79, 0.14);
-}
-
 @media (max-width: 767px) {
   .site-footer {
     margin-top: 2.5rem;
@@ -246,6 +227,47 @@ const programLinks = [
   .footer-links {
     width: 100%;
     gap: 0.75rem !important;
+  }
+
+  .digital-partner {
+    flex-wrap: wrap;
+    row-gap: 0.15rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-footer .container {
+    width: calc(100% - 1rem);
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+  }
+
+  .site-footer .container.py-5 {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .footer-bottom .container {
+    gap: 0.75rem !important;
+  }
+
+  .footer-bottom {
+    font-size: 0.78rem;
+  }
+
+  .digital-partner {
+    align-items: flex-start;
+    column-gap: 0.25rem;
+    max-width: 100%;
+  }
+
+  .digital-partner > a:not(.digital-partner-icon) {
+    overflow-wrap: anywhere;
+  }
+
+  .digital-partner-icon {
+    flex: 0 0 auto;
   }
 }
 

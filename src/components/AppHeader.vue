@@ -136,6 +136,7 @@ const handleNavClick = (link, event) => {
 }
 
 .navbar {
+  position: relative;
   min-height: 76px;
   padding: 0.45rem 0;
 }
@@ -267,11 +268,19 @@ const handleNavClick = (link, event) => {
   }
 
   .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     display: none;
     width: 100%;
     max-height: calc(100vh - 90px);
     overflow-y: auto;
-    padding-top: 1rem;
+    padding: 1rem max(1rem, calc((100% - var(--container)) / 2 + 0.75rem));
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 1px solid rgba(87, 174, 79, 0.12);
+    box-shadow: 0 18px 28px rgba(17, 14, 14, 0.12);
+    z-index: 2;
   }
 
   .navbar-collapse.show {
@@ -328,9 +337,71 @@ const handleNavClick = (link, event) => {
     padding: 0.35rem 0;
   }
 
+  .topbar .container {
+    width: calc(100% - 1rem);
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    gap: 0.35rem !important;
+  }
+
+  .topbar-left {
+    min-width: 0;
+    gap: 0.25rem !important;
+  }
+
+  .topbar-left a {
+    overflow-wrap: anywhere;
+    line-height: 1.25;
+  }
+
+  .topbar span {
+    white-space: nowrap;
+  }
+
+  .navbar > .container {
+    width: calc(100% - 1rem);
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+  }
+
   .brand-logo {
-    height: 48px;
-    margin-left: -0.15rem;
+    width: min(220px, calc(100vw - 5.25rem));
+    height: auto;
+    max-height: 48px;
+    margin-left: 0;
+  }
+
+  .navbar-toggler {
+    flex: 0 0 auto;
+    padding: 0.45rem 0.55rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar {
+    font-size: 0.62rem;
+  }
+
+  .topbar-left a i {
+    display: none;
+  }
+
+  .topbar span i {
+    margin-right: 0.15rem !important;
+  }
+
+  .brand-logo {
+    width: calc(100vw - 6rem);
+    max-height: 42px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .navbar-toggler {
+    margin-left: auto;
   }
 }
 </style>

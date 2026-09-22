@@ -533,7 +533,7 @@ onBeforeUnmount(() => {
 }
 
 .impact-strip {
-  margin-top: -2.4rem;
+  margin-top: 2rem;
   position: relative;
   z-index: 3;
 }
@@ -960,6 +960,10 @@ onBeforeUnmount(() => {
 
   .hero-visual {
     min-height: 300px;
+  }
+
+  .impact-strip {
+    margin-top: 1rem;
   }
 
   .hero-badge-top {

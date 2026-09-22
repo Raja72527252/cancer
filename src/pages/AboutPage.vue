@@ -1,4 +1,6 @@
 <script setup>
+import { whatWeDoCards } from '../data/siteData'
+
 const overview = [
   'Tulasi Maya Memorial Cancer Relief Foundation is a not-for-profit and non-governmental organization registered in District Administrative Office, Kathmandu, and affiliated with the Social Welfare Council (SWC).',
   'The foundation was established in memory of Late Tulasi Maya, a woman whose life was shaped by resilience, compassion and courage.',
@@ -42,6 +44,32 @@ const overview = [
                 <li v-for="item in overview" :key="item">{{ item }}</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section what-we-do-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-kicker">Our focus</span>
+          <h2 class="section-title">What We Do</h2>
+          <p class="lead mx-auto">
+            We turn awareness, prevention and compassionate support into practical action for communities across Nepal.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div v-for="item in whatWeDoCards" :key="item.title" class="col-md-6 col-xl-3">
+            <article class="about-focus-card surface-card h-100">
+              <div class="about-focus-icon">
+                <img :src="item.image" :alt="`${item.title} icon`" />
+              </div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+              <router-link class="about-focus-link" :to="`/what-we-do/${item.title.toLowerCase().replaceAll(' ', '-')}`">
+                Explore focus <i class="bi bi-arrow-up-right"></i>
+              </router-link>
+            </article>
           </div>
         </div>
       </div>
@@ -96,5 +124,62 @@ const overview = [
   color: #000000;
   font-size: 1.4rem;
   line-height: 1;
+}
+
+.what-we-do-section {
+  background: #f5faf4;
+}
+
+.what-we-do-section .lead {
+  max-width: 40rem;
+}
+
+.about-focus-card {
+  padding: 1.6rem 1.4rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-focus-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 42px rgba(33, 20, 20, 0.14);
+}
+
+.about-focus-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+}
+
+.about-focus-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.about-focus-card h3 {
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.about-focus-card p {
+  color: var(--color-muted);
+}
+
+.about-focus-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.about-focus-link:hover {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
 }
 </style>
