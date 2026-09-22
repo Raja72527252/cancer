@@ -50,7 +50,6 @@ const handleNavClick = (link, event) => {
           <a href="mailto:info@tumamcarefoundation.org.np">
             <i class="bi bi-envelope me-2"></i>info@tumamcarefoundation.org.np
           </a>
-          <span class="topbar-uicc">UICC • Switzerland</span>
         </div>
         <span lang="ne"><i class="bi bi-calendar3 me-2"></i>२०८३ असोज ५</span>
       </div>
@@ -60,10 +59,6 @@ const handleNavClick = (link, event) => {
       <div class="container">
         <router-link class="brand" to="/" @click="closeMenu">
           <img src="/images/logo-111-768x147.jpg" alt="TULASI MAYA MEMORIAL CANCER RELIEF FOUNDATION" class="brand-logo" />
-          <div class="brand-copy">
-            <span class="brand-name">Tulasi Maya Memorial Cancer Relief Foundation</span>
-            <a href="https://www.tumamcarefoundation.org.np/" target="_blank" rel="noopener" class="brand-url">www.tumamcarefoundation.org.np</a>
-          </div>
         </router-link>
 
         <button

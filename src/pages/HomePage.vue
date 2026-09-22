@@ -1,15 +1,50 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { homeServices, programCards, whatWeDoCards, resourceCards, galleryVideos, teamGroups } from '../data/siteData'
 import ProgramCard from '../components/ProgramCard.vue'
 import ResourceCard from '../components/ResourceCard.vue'
 import TeamCard from '../components/TeamCard.vue'
 
 const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice(0, 6)
+const heroSlides = [
+  { image: '/images/cancer-education-program.jpg', alt: 'Cancer education program' },
+  { image: '/images/INTRODUCTION-IMAGE-768x469.jpg', alt: 'Community cancer awareness activity' },
+  { image: '/images/IMG_2577.jpg', alt: 'Cancer screening awareness program' },
+  { image: '/images/banner-via-myagde3-1-scaled.jpg', alt: 'Foundation community outreach' }
+]
+const focusServices = homeServices.filter(item =>
+  ['Tobacco Control', 'Patient Advocacy', 'Research'].includes(item.title)
+)
+focusServices.unshift({
+  title: 'Cancer Screening',
+  description: 'Promoting timely screening, early detection and referral support for communities.',
+  image: '/images/what-we-do/screening.png'
+})
+const activeSlide = ref(0)
+let slideTimer
+
+const setSlide = (index) => {
+  activeSlide.value = (index + heroSlides.length) % heroSlides.length
+}
+
+onMounted(() => {
+  slideTimer = window.setInterval(() => setSlide(activeSlide.value + 1), 5000)
+})
+
+onBeforeUnmount(() => {
+  window.clearInterval(slideTimer)
+})
 </script>
 
 <template>
   <div class="home-page">
-    <section class="hero-section" style="--hero-image: url('/images/cancer-education-program.jpg')">
+    <section class="hero-section">
+      <img
+        :key="heroSlides[activeSlide].image"
+        class="hero-slide-image"
+        :src="heroSlides[activeSlide].image"
+        :alt="heroSlides[activeSlide].alt"
+      />
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <div class="row align-items-center gy-4">
@@ -39,12 +74,23 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
           </div>
         </div>
       </div>
+      <div class="hero-slider-controls" aria-label="Hero image slider controls">
+        <button
+          v-for="(slide, index) in heroSlides"
+          :key="slide.image"
+          type="button"
+          :class="{ active: activeSlide === index }"
+          :aria-label="`Show slide ${index + 1}`"
+          :aria-current="activeSlide === index ? 'true' : undefined"
+          @click="setSlide(index)"
+        ></button>
+      </div>
     </section>
 
     <section class="section-sm impact-strip">
       <div class="container">
         <div class="row g-4">
-          <div v-for="item in homeServices" :key="item.title" class="col-md-6 col-xl-4">
+          <div v-for="item in focusServices" :key="item.title" class="col-sm-6 col-xl-3">
             <div class="impact-card service-highlight surface-card h-100">
               <div class="impact-icon impact-image-icon">
                 <img :src="item.image" :alt="`${item.title} icon`" />
@@ -307,16 +353,26 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   isolation: isolate;
   min-height: 560px;
   padding: 5rem 0 6rem;
-  background-image: linear-gradient(90deg, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.36)), var(--hero-image);
-  background-position: center;
-  background-size: cover;
+  overflow: hidden;
   color: var(--color-white);
 }
 
+.hero-slide-image,
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 0;
+}
+
+.hero-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: hero-slide-fade 0.8s ease both;
+}
+
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.36));
 }
 
 .hero-section::after {
@@ -497,6 +553,33 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
 .hero-panel ul {
   margin: 1rem 0 0;
   padding-left: 1.1rem;
+}
+
+.hero-slider-controls {
+  position: absolute;
+  right: 0;
+  bottom: 3.5rem;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.hero-slider-controls button {
+  width: 2.2rem;
+  height: 0.3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-slider-controls button.active,
+.hero-slider-controls button:hover {
+  background: var(--color-primary);
+  transform: scaleY(1.35);
 }
 
 .impact-strip {
@@ -833,6 +916,17 @@ const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-slide-fade {
+  from {
+    opacity: 0.35;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
