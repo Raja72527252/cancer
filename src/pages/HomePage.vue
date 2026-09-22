@@ -1,8 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { homeServices, programCards, whatWeDoCards, resourceCards, galleryVideos, teamGroups } from '../data/siteData'
+import { homeServices, programCards, galleryVideos, teamGroups } from '../data/siteData'
 import ProgramCard from '../components/ProgramCard.vue'
-import ResourceCard from '../components/ResourceCard.vue'
 import TeamCard from '../components/TeamCard.vue'
 
 const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice(0, 6)
@@ -131,30 +130,6 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <router-link class="site-btn" to="/about">Read More</router-link>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section soft-bg reveal-section">
-      <div class="container">
-        <div class="text-center mb-5">
-          <span class="section-kicker">What we do</span>
-          <h2 class="section-title">Driving prevention, screening and support</h2>
-        </div>
-
-        <div class="row g-4">
-          <div v-for="item in whatWeDoCards" :key="item.title" class="col-md-6 col-xl-3">
-            <div class="service-card surface-card h-100">
-              <div class="service-icon service-image-icon">
-                <img :src="item.image" :alt="`${item.title} icon`" />
-              </div>
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.description }}</p>
-              <router-link class="service-link" :to="`/what-we-do/${item.title.toLowerCase().replaceAll(' ', '-')}`">
-                Learn More <i class="bi bi-arrow-up-right"></i>
-              </router-link>
-            </div>
           </div>
         </div>
       </div>
@@ -290,40 +265,6 @@ onBeforeUnmount(() => {
         </div>
         <div class="text-center mt-5">
           <router-link class="site-btn" to="/our-team">Meet Our Team</router-link>
-        </div>
-      </div>
-    </section>
-
-    <section class="section soft-bg">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
-          <div>
-            <span class="section-kicker">Resources</span>
-            <h2 class="section-title mb-0">Awareness and educational materials</h2>
-          </div>
-          <router-link class="site-btn" to="/resources">View All Resources</router-link>
-        </div>
-
-        <div class="row g-4">
-          <div v-for="item in resourceCards.slice(0, 6)" :key="item.title" class="col-md-6 col-xl-4">
-            <ResourceCard :item="item" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-band reveal-section">
-      <div class="container">
-        <div class="cta-panel surface-card">
-          <div class="row align-items-center g-4">
-            <div class="col-lg-8">
-              <span class="section-kicker">Get involved</span>
-              <h2 class="section-title mb-0">Support the foundation’s work to create healthier communities</h2>
-            </div>
-            <div class="col-lg-4 text-lg-end">
-              <router-link class="site-btn" to="/contact">Contact Foundation</router-link>
-            </div>
-          </div>
         </div>
       </div>
     </section>

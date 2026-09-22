@@ -56,8 +56,6 @@ const programLinks = [
       <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
         <span>Copyright © 2026 TUMAMCARE FOUNDATION</span>
         <div class="footer-links d-flex align-items-center gap-3 flex-wrap">
-          <router-link to="/contact">Contact Foundation</router-link>
-          <a href="https://www.tumamcarefoundation.org.np/" target="_blank" rel="noopener">Official Website</a>
           <span class="digital-partner">
             Digital Partner -
             <a href="https://infiniteitsolutionsnepal.com/" target="_blank" rel="noopener">
