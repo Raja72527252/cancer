@@ -36,7 +36,7 @@ onBeforeUnmount(() => {
   height: 48px;
   border: none;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary), #7a1d39);
+  background: var(--color-primary);
   color: var(--color-white);
   box-shadow: 0 12px 28px rgba(46, 111, 42, 0.3);
   z-index: 1400;

@@ -57,7 +57,6 @@ onBeforeUnmount(() => {
               </p>
               <div class="hero-actions d-flex flex-wrap gap-3">
                 <router-link class="site-btn" to="/donate">Donate</router-link>
-                <router-link class="site-btn" to="/programs">Our Programs</router-link>
                 <router-link class="site-btn" to="/get-involved">Get Involved</router-link>
               </div>
             </div>
@@ -289,11 +288,21 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+.home-page > .section {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.home-page > .section-sm {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
 .hero-section {
   position: relative;
   isolation: isolate;
-  min-height: 560px;
-  padding: 5rem 0 6rem;
+  min-height: 680px;
+  padding: 6.5rem 0 7.5rem;
   overflow: hidden;
   color: var(--color-white);
 }
@@ -929,6 +938,16 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 575px) {
+  .home-page > .section {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .home-page > .section-sm {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
   .hero-section {
     padding-top: 4rem;
     padding-bottom: 4rem;

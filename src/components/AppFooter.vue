@@ -61,6 +61,16 @@ const programLinks = [
             <a href="https://infiniteitsolutionsnepal.com/" target="_blank" rel="noopener">
               Infinite IT Solution Nepal
             </a>
+            <a
+              class="digital-partner-icon"
+              href="https://infiniteitsolutionsnepal.com/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Infinite IT Solution Nepal"
+              title="Infinite IT Solution Nepal"
+            >
+              <i class="bi bi-globe2"></i>
+            </a>
           </span>
           <div class="socials">
             <a href="https://www.tumamcarefoundation.org.np/" target="_blank" rel="noopener" aria-label="Foundation website">
@@ -169,6 +179,29 @@ const programLinks = [
 
 .footer-links {
   color: #527054;
+}
+
+.digital-partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.digital-partner-icon {
+  display: inline-grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(87, 174, 79, 0.14);
+  color: #000000 !important;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.digital-partner-icon:hover {
+  background: var(--color-primary);
+  color: var(--color-white) !important;
+  transform: translateY(-2px);
 }
 
 .socials {

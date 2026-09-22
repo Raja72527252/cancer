@@ -7,7 +7,7 @@ export const navLinks = [
       { label: 'Introduction', to: '/about/introduction' },
       { label: 'Vision, Mission & Objectives', to: '/about/vision-mission-objectives' },
       { label: 'Organizational Structure', to: '/about/organizational-structure' },
-      { label: 'Our Teams', to: '/our-team' },
+      { label: 'Our Teams', to: '/about/our-team' },
       { label: 'What We Do?', to: '/what-we-do' }
     ]
 
@@ -27,7 +27,7 @@ export const navLinks = [
     children: [
       { label: 'Events', to: '/get-involved/events' },
       { label: 'Volunteer', to: '/get-involved/volunteer' },
-      { label: 'Donate', to: '/donate' }
+      { label: 'Donate', to: '/get-involved/donate' }
     ]
   },
   {
@@ -36,7 +36,7 @@ export const navLinks = [
     children: [
       { label: 'Media Release', to: '/news/media-release' },
       { label: 'Media Contact', to: '/news/media-contact' },
-      { label: 'Blog', to: '/blog' }
+      { label: 'Blog', to: '/news/blog' }
     ]
   },
   {

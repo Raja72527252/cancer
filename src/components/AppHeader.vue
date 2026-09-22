@@ -80,7 +80,7 @@ const handleNavClick = (link, event) => {
               <router-link
                 class="nav-link"
                 :to="link.to"
-                :aria-expanded="link.children ? 'false' : undefined"
+                :aria-expanded="link.children ? String(openDropdown === link.label) : undefined"
                 @click="handleNavClick(link, $event)"
               >
                 {{ link.label }}<i v-if="link.children" class="bi bi-chevron-down ms-1"></i>
