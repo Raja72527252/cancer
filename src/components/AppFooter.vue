@@ -22,14 +22,7 @@ const programLinks = [
           <router-link class="footer-cta" to="/donate"><i class="bi bi-heart-fill"></i> Support our mission</router-link>
         </div>
 
-        <div class="col-lg-2 col-md-4">
-          <h6>Quick Links</h6>
-          <ul>
-            <li v-for="link in quickLinks" :key="link.label">
-              <router-link :to="link.to">{{ link.label }}</router-link>
-            </li>
-          </ul>
-        </div>
+        
 
         <div class="col-lg-3 col-md-4">
           <h6>Programs</h6>

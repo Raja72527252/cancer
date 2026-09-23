@@ -182,37 +182,54 @@ onBeforeUnmount(() => {
     <section class="section reveal-section">
       <div class="container">
         <div class="text-center mb-5">
-          <span class="section-kicker">Why support us</span>
-          <h2 class="section-title">Together, we can make a difference</h2>
+          <span class="section-kicker">Our Global Partners & Collaborators</span>
+          <h2 class="section-title">Working together to advance cancer control worldwide.</h2>
         </div>
 
         <div class="row g-4">
           <div class="col-md-6 col-xl-3">
             <div class="support-card surface-card h-100">
               <div class="service-icon"><i class="bi bi-megaphone"></i></div>
-              <h3>Awareness</h3>
-              <p>Encouraging informed choices and community understanding of cancer prevention.</p>
+              <h3>International Cancer Control</h3>
+              <p>Global collaboration for better cancer care and prevention.
+                <b>Organization:</b>
+Union for International Cancer Control (UICC)
+Switzerland</p>
             </div>
           </div>
           <div class="col-md-6 col-xl-3">
             <div class="support-card surface-card h-100">
               <div class="service-icon"><i class="bi bi-shield-check"></i></div>
-              <h3>Prevention</h3>
-              <p>Reducing risk through education, screening and healthy community practices.</p>
+              <h3>Cancer Prevention & Control</h3>
+              <p>Supporting stronger strategies for cancer prevention.
+
+<b>Organization:</b>
+Union for International Cancer Control (UICC)
+Switzerland</p>
             </div>
           </div>
           <div class="col-md-6 col-xl-3">
             <div class="support-card surface-card h-100">
               <div class="service-icon"><i class="bi bi-clipboard2-pulse"></i></div>
-              <h3>Early Detection</h3>
-              <p>Helping communities access screening and timely diagnosis before complications arise.</p>
+              <h3>Global Cancer Network</h3>
+              <p>
+Connecting organizations for a healthier future.
+
+<br><b>Organization:</b>
+Union for International Cancer Control (UICC)
+Switzerland</p>
             </div>
           </div>
           <div class="col-md-6 col-xl-3">
             <div class="support-card surface-card h-100">
               <div class="service-icon"><i class="bi bi-people"></i></div>
-              <h3>Support</h3>
-              <p>Providing compassionate care, guidance and community-based advocacy for patients and families.</p>
+              <h3>Cancer Care & Advocacy</h3>
+              <p>
+Advancing awareness, research and patient support.
+
+<br><b>Organization:</b>
+Union for International Cancer Control (UICC)
+Switzerland</p>
             </div>
           </div>
         </div>
