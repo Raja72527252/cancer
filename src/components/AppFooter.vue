@@ -1,17 +1,10 @@
 <script setup>
-import { quickLinks } from '../data/siteData'
-
-const programLinks = [
-  { label: 'Cervical Cancer Program', to: '/programs/cervical-cancer' },
-  { label: 'Breast Cancer Program', to: '/programs/breast-cancer' },
-  { label: 'Tobacco Control Program', to: '/programs/tobacco-control' }
-]
 </script>
 
 <template>
   <footer class="site-footer">
     <div class="container py-5">
-      <div class="row g-4">
+      <div class="row g-4 justify-content-between">
         <div class="col-lg-4">
           <div class="footer-brand">
             <div class="brand-mark">
@@ -20,17 +13,6 @@ const programLinks = [
           </div>
           <p class="footer-intro">Working with communities across Nepal to make cancer awareness, prevention, early detection and compassionate support more accessible.</p>
           <router-link class="footer-cta" to="/donate"><i class="bi bi-heart-fill"></i> Support our mission</router-link>
-        </div>
-
-        
-
-        <div class="col-lg-3 col-md-4">
-          <h6>Programs</h6>
-          <ul>
-            <li v-for="program in programLinks" :key="program.to">
-              <router-link :to="program.to">{{ program.label }}</router-link>
-            </li>
-          </ul>
         </div>
 
         <div class="col-lg-3 col-md-4">

@@ -1,10 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { homeServices, programCards, galleryVideos, teamGroups } from '../data/siteData'
+import { homeServices, programCards, galleryVideos } from '../data/siteData'
 import ProgramCard from '../components/ProgramCard.vue'
-import TeamCard from '../components/TeamCard.vue'
-
-const teamPreview = teamGroups.flatMap(group => group.members.slice(0, 3)).slice(0, 6)
 const heroSlides = [
   { image: '/images/cancer-education-program.jpg', alt: 'Cancer education program' },
   { image: '/images/INTRODUCTION-IMAGE-768x469.jpg', alt: 'Community cancer awareness activity' },
@@ -33,6 +30,53 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.clearInterval(slideTimer)
 })
+
+const videoScrollRef = ref(null)
+
+const homeVideos = [
+  ...galleryVideos.slice(0, 3),
+  {
+    title: galleryVideos[0].title,
+    source: galleryVideos[0].source
+  },
+  {
+    title: galleryVideos[1].title,
+    source: galleryVideos[1].source
+  }
+]
+
+const handleVideoWheel = (event) => {
+  const container = videoScrollRef.value
+  if (!container) return
+
+  if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+    const isAtStart = container.scrollLeft <= 2
+    const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 5
+
+    if (event.deltaY > 0 && !isAtEnd) {
+      event.preventDefault()
+      const card = container.querySelector('.col-lg-4')
+      const step = card ? card.offsetWidth + 24 : 380
+      container.scrollBy({ left: step, behavior: 'smooth' })
+    } else if (event.deltaY < 0 && !isAtStart) {
+      event.preventDefault()
+      const card = container.querySelector('.col-lg-4')
+      const step = card ? card.offsetWidth + 24 : 380
+      container.scrollBy({ left: -step, behavior: 'smooth' })
+    }
+  }
+}
+
+const scrollVideos = (direction) => {
+  const container = videoScrollRef.value
+  if (!container) return
+  const card = container.querySelector('.col-lg-4')
+  const step = card ? card.offsetWidth + 24 : 380
+  container.scrollBy({
+    left: direction === 'right' ? step : -step,
+    behavior: 'smooth'
+  })
+}
 </script>
 
 <template>
@@ -246,44 +290,56 @@ Switzerland</p>
           <router-link class="site-btn" to="/gallery/videos">View All Videos</router-link>
         </div>
 
-        <div class="row g-4 home-video-grid">
-          <div v-for="video in galleryVideos.slice(0, 3)" :key="video.title" class="col-lg-4">
-            <article class="video-card surface-card h-100">
-              <video controls preload="metadata" poster="/images/cancer-education-program.jpg">
-                <source :src="video.source" type="video/mp4" />
-                Your browser does not support video playback.
-              </video>
-              <div class="video-card-body">
-                <span class="section-kicker">Foundation video</span>
-                <h3>{{ video.title }}</h3>
-                <a class="gallery-download" :href="video.source" target="_blank" rel="noreferrer">
-                  <i class="bi bi-play-circle"></i> Open video
-                </a>
+        <div class="video-carousel-wrapper position-relative">
+          <button
+            type="button"
+            class="video-side-btn video-side-btn-prev"
+            @click="scrollVideos('left')"
+            aria-label="Previous video"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
+
+          <div
+            ref="videoScrollRef"
+            class="video-scroll-container"
+            @wheel="handleVideoWheel"
+          >
+            <div class="row g-4 flex-nowrap home-video-grid">
+              <div
+                v-for="(video, index) in homeVideos"
+                :key="index"
+                class="col-12 col-md-6 col-lg-4 flex-shrink-0"
+              >
+                <article class="video-card surface-card h-100">
+                  <video controls preload="metadata" poster="/images/cancer-education-program.jpg">
+                    <source :src="video.source" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                  <div class="video-card-body">
+                    <span class="section-kicker">Foundation video</span>
+                    <h3>{{ video.title }}</h3>
+                    <a class="gallery-download" :href="video.source" target="_blank" rel="noreferrer">
+                      <i class="bi bi-play-circle"></i> Open video
+                    </a>
+                  </div>
+                </article>
               </div>
-            </article>
+            </div>
           </div>
+
+          <button
+            type="button"
+            class="video-side-btn video-side-btn-next"
+            @click="scrollVideos('right')"
+            aria-label="Next video"
+          >
+            <i class="bi bi-chevron-right"></i>
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="text-center mb-5">
-          <span class="section-kicker">Our team</span>
-          <h2 class="section-title">People behind the mission</h2>
-          <p class="lead team-section-intro">Meet the committed people helping communities find trusted cancer information, screening and support.</p>
-        </div>
-
-        <div class="row g-4">
-          <div v-for="member in teamPreview" :key="member.name" class="col-sm-6 col-lg-4">
-            <TeamCard :member="member" />
-          </div>
-        </div>
-        <div class="text-center mt-5">
-          <router-link class="site-btn" to="/our-team">Meet Our Team</router-link>
-        </div>
-      </div>
-    </section>
 
     <section class="section donation-section reveal-section">
       <div class="container">
@@ -656,10 +712,6 @@ Switzerland</p>
   margin-bottom: 0;
 }
 
-.team-section-intro {
-  max-width: 42rem;
-  margin: 0 auto;
-}
 
 .service-link {
   display: inline-flex;
@@ -760,6 +812,78 @@ Switzerland</p>
   gap: 0.4rem;
   color: #000000;
   font-weight: 700;
+}
+
+.video-carousel-wrapper {
+  position: relative;
+}
+
+.video-side-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(87, 174, 79, 0.35);
+  background: var(--color-white, #ffffff);
+  color: #285b2b;
+  display: inline-grid;
+  place-items: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.video-side-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 8px 20px rgba(46, 111, 42, 0.28);
+}
+
+.video-side-btn-prev {
+  left: -20px;
+}
+
+.video-side-btn-next {
+  right: -20px;
+}
+
+.video-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.video-scroll-container::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.video-scroll-container .col-12,
+.video-scroll-container .col-md-6,
+.video-scroll-container .col-lg-4 {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 991px) {
+  .video-side-btn-prev {
+    left: 4px;
+  }
+  .video-side-btn-next {
+    right: 4px;
+  }
 }
 
 .service-card a {
